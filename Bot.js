@@ -25,6 +25,27 @@ for (let event of events) {
 		client.on(eventFile.name, (...args) => {
 			eventFile.invoke(...args);
 		});
+	const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
+
+await lib.discord.channels['@0.3.2'].messages.create({
+  "channel_id": `${context.params.event.channel_id}`,
+  "content": "",
+  "tts": false,
+  "embeds": [
+    {
+      "type": "rich",
+      "title": `hello`,
+      "description": `test`,
+      "color": 0x00FFFF,
+      "fields": [
+        {
+          "name": `helllo thats test`,
+          "value": `nice`
+        }
+      ]
+    }
+  ]
+});
 }
 
 // Login with the environment data
